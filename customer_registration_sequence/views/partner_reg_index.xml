@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="bi_partner_index_inherit_field_sequence_name" model="ir.ui.view">
+            <field name="name">partner.index.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                  <xpath expr="//div[@class='oe_title mb24']" position="after">
+                    <group>
+                        <h1 style="color: #d7308b;" ><field name="partner_index" nolabel="1" /></h1>
+                    </group>
+                </xpath>
+
+            </field>
+        </record>
+
+
+         <record id="kamban_partner_index_inherit_field_sequence_name" model="ir.ui.view">
+            <field name="name">partner.index.kanban.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.res_partner_kanban_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@class='o_kanban_tags_section oe_kanban_partner_categories']" position="before">
+                    <strong class="o_kanban_record_title oe_partner_heading">
+                        <span style="color: #d7308b;">:<field name="partner_index" nolabel="1" /></span>
+                    </strong>
+                </xpath>
+
+            </field>
+        </record>
+
+ <record id="tree_partner_index_inherit_field_sequence_name" model="ir.ui.view">
+            <field name="name">partner.index.tree.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+            <xpath expr="/tree/field[@name='display_name']" position="after">
+                 <field name="partner_index" string="RegNo:"  />
+            </xpath>
+            </field>
+        </record>
+
+<record id="partner_index_inherit_field_sequence_search_view" model="ir.ui.view">
+            <field name="name">Search</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="partner_index" string="RegNo:" />
+                 </field>
+
+             </field>
+        </record>
+
+
+    </data>
+</odoo>
